@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody rigidbody;
 
+    public int stageNum = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,24 +19,59 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow)) 
+        switch (stageNum) 
         {
-            rigidbody.AddForce(new Vector3(0, 0, 1) * power);
-        }
+            case 2:
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    
+                    rigidbody.AddForce(new Vector3(-1, 0, 0) * power);
+                }
 
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            rigidbody.AddForce(new Vector3(0, 0, -1) * power);
-        }
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
 
-        if (Input.GetKey(KeyCode.LeftArrow)) 
-        {
-            rigidbody.AddForce(new Vector3(-1, 0, 0) * power);
-        }
+                    rigidbody.AddForce(new Vector3(1, 0, 0) * power);
+                }
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rigidbody.AddForce(new Vector3(1, 0, 0) * power);
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    
+                    rigidbody.AddForce(new Vector3(0, 0, -1) * power);
+                }
+
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    
+                    rigidbody.AddForce(new Vector3(0, 0, 1) * power);
+                }
+                break;
+
+            case 1:
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    rigidbody.AddForce(new Vector3(0, 0, 1) * power);
+                }
+
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    rigidbody.AddForce(new Vector3(0, 0, -1) * power);
+                }
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    rigidbody.AddForce(new Vector3(-1, 0, 0) * power);
+                }
+
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    rigidbody.AddForce(new Vector3(1, 0, 0) * power);
+                }
+                break;
         }
+        
+
+      
+
     }
 }
